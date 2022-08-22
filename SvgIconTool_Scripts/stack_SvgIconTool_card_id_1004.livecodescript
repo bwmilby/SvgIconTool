@@ -72,7 +72,7 @@ command iconFamilyChanged pFamily
 end iconFamilyChanged
 
 command updateIcons
-   local tOffset, tIconName, tPath, tObject, tSelected
+   local tOffset, tIconName, tPath, tObject, tSelected, tError, tErrors
    lock screen
    put (sIconPage - 1) * kRows * kCols into tOffset
    repeat with tRow = 1 to kRows
@@ -82,13 +82,20 @@ command updateIcons
          put sIconData[sFamily][tIconName]["selected"] is not empty into tSelected
          put "widget" && quote & "icon " & tCol & quote && "of group" && \
                quote & "row " & tRow & quote into tObject
-         set the iconPath of tObject to tPath
+         try
+            set the iconPath of tObject to tPath
+         catch tError
+            put sFamily & "/" & tIconName & cr & tPath & cr & tError & cr after tErrors
+         end try
          set the toolTip of tObject to tIconName
          set the hilited of tObject to tSelected
          set the selected of tObject to tSelected
       end repeat
    end repeat
    unlock screen
+   if tErrors is not empty then
+      answer tErrors
+   end if
 end updateIcons
 
 command goPrevPage
