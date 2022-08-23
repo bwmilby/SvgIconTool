@@ -85,7 +85,7 @@ command updateIcons
          try
             set the iconPath of tObject to tPath
          catch tError
-            put sFamily & "/" & tIconName & cr & tPath & cr & tError & cr after tErrors
+            put sFamily & "/" & tIconName & cr & tPath & cr & tError & cr & cr after tErrors
          end try
          set the toolTip of tObject to tIconName
          set the hilited of tObject to tSelected
@@ -94,7 +94,8 @@ command updateIcons
    end repeat
    unlock screen
    if tErrors is not empty then
-      answer tErrors
+      delete char -2 to -1 of tErrors
+      answer "Errors setting icon paths:" & cr & cr & tErrors
    end if
 end updateIcons
 

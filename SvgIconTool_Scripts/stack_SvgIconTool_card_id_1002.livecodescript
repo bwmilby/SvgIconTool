@@ -18,7 +18,7 @@ on dragEnter
 end dragEnter
 
 on loadIconFile pIconFileName
-   local tIconName, tFileText, tPath
+   local tIconName, tFileText, tPath, tError
    
    set linedel to "/"
    set itemdel to "."
@@ -28,7 +28,11 @@ on loadIconFile pIconFileName
    
    put extractPathFromSvg(tFileText) into tPath
    
-   set the iconPath of widget "SVG_Icon" to tPath
+   try
+      set the iconPath of widget "SVG_Icon" to tPath
+   catch tError
+      answer "Error setting path for " & tIconName & cr & tError
+   end try
    
    put pIconFileName into field "FileName"
    put tIconName into field "IconName"

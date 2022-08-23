@@ -17,10 +17,17 @@ on selectionChanged
    put tIconName into field "IconName"
    put url ("file:" & tIconFileName) into tFileText
    put extractPathFromSvg(tFileText) into tPath
-   set the iconPath of widget "SVG_Icon" to tPath
+   
+   try
+      set the iconPath of widget "SVG_Icon" to tPath
+   catch tError
+      answer "Error setting path for " & tIconName & cr & tError
+   end try
    
    put tIconFileName into field "FileName" of card "icon"
    put tFileText into field "FileText" of card "icon"
    put tPath into field "Path" of card "icon"
-   set the iconPath of widget "SVG_Icon" of card "icon" to tPath
+   try
+      set the iconPath of widget "SVG_Icon" of card "icon" to tPath
+   end try
 end selectionChanged
