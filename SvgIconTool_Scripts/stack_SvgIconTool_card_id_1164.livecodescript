@@ -83,3 +83,33 @@ command populateFields
    set the hilitedline of field "LibraryList" to 1
    unlock screen
 end populateFields
+
+on dragEnter
+   set the dragAction to "copy"
+end dragEnter
+
+on dragDrop
+   local tFamilyFiles, tIconName, tFileText, tPath
+   
+   put the dragdata["files"] into tFamilyFiles
+   
+   if tFamilyFiles is empty then exit to top
+   
+   loadFamilies tFamilyFiles
+   populateFields
+end dragDrop
+
+on loadFamilies pFamilyFiles
+   repeat for each line tFile in pFamilyFiles
+      if there is a file tFile then
+         set the linedel to "/"
+         set the itemdel to "."
+         put arrayDecode(URL ("binfile:" & tFile)) into sIconData[item 1 of line -1 of tFile]
+         set the uIconData of card "grid" to sIconData
+         set the linedel to cr
+      else if there is a folder tFile then
+         if tFile begins with "." then next repeat
+         loadFamilies files(tFile)
+      end if
+   end repeat
+end loadFamilies
