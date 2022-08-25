@@ -17,7 +17,7 @@ on preOpenCard
    
    put the hilite of button "AddFamily" of card "settings" into sAddFamily
    
-   put the uIconData of this card into sIconData
+   put getIconData() into sIconData
    
    put the keys of sIconData into tFamilies
    
@@ -192,7 +192,7 @@ on mouseUp pButtonNumber
             iconFamilyChanged sFamily
             break
          case "SaveFamily"
-            set the uIconData of this card to sIconData
+            setIconData sIconData
             ask file "Select where to save the data:" with sFamily & ".lson"
             if the result is not "Cancel" then
                put arrayEncode(sIconData[sFamily]) into URL ("binfile:" & it)
@@ -244,7 +244,7 @@ on copyIconsToFamily pNewFamily
 end copyIconsToFamily
 
 on closeCard
-   set the uIconData of this card to sIconData
+   setIconData sIconData
 end closeCard
 
 constant kHmargin = 6

@@ -12,7 +12,7 @@ on preOpenCard
    revUpdateGeometry
    set the hilitedItemName of widget "NavBar" to the short name of this card
    
-   put the uIconData of card "grid" into sIconData
+   put getIconData() into sIconData
    populateFields
 end preOpenCard
 
@@ -29,7 +29,7 @@ on mouseUp pButtonNumber
                set the linedel to "/"
                set the itemdel to "."
                put arrayDecode(URL ("binfile:" & it)) into sIconData[item 1 of line -1 of it]
-               set the uIconData of card "grid" to sIconData
+               setIconData sIconData
                populateFields
             end if
             break
@@ -41,7 +41,7 @@ on mouseUp pButtonNumber
             break
          case "DeleteToolFamily"
             delete variable sIconData[tTool]
-            set the uIconData of card "grid" to sIconData
+            setIconData sIconData
             populateFields
             break
          case "CopyToolToLibrary"
@@ -50,7 +50,7 @@ on mouseUp pButtonNumber
             break
          case "CopyLibraryToTool"
             put iconDataForFamily(tLibrary) into sIconData[tLibrary]
-            set the uIconData of card "grid" to sIconData
+            setIconData sIconData
             populateFields
             break
          case "DeleteLibraryFamily"
@@ -105,7 +105,7 @@ on loadFamilies pFamilyFiles
          set the linedel to "/"
          set the itemdel to "."
          put arrayDecode(URL ("binfile:" & tFile)) into sIconData[item 1 of line -1 of tFile]
-         set the uIconData of card "grid" to sIconData
+         setIconData sIconData
          set the linedel to cr
       else if there is a folder tFile then
          if tFile begins with "." then next repeat

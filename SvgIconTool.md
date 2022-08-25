@@ -56,6 +56,14 @@
 * ID: card id 1007 of stack "SvgIconTool"
 * [stack_SvgIconTool_card_id_1007](./SvgIconTool_Scripts/stack_SvgIconTool_card_id_1007.livecodescript)
 
+**button "ShowHelp" of card "settings" of stack "SvgIconTool"**
+* ID: button id 1155 of card id 1007 of stack "SvgIconTool"
+* [stack_SvgIconTool_button_id_1155](./SvgIconTool_Scripts/stack_SvgIconTool_button_id_1155.livecodescript)
+
+**button "AddFamily" of card "settings" of stack "SvgIconTool"**
+* ID: button id 1161 of card id 1007 of stack "SvgIconTool"
+* [stack_SvgIconTool_button_id_1161](./SvgIconTool_Scripts/stack_SvgIconTool_button_id_1161.livecodescript)
+
 **widget "TopLevelStack" of card "settings" of stack "SvgIconTool"**
 * ID: widget id 1185 of card id 1007 of stack "SvgIconTool"
 * Widget Kind: com.livecode.widget.svgpath
