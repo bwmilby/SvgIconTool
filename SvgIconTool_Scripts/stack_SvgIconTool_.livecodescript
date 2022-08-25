@@ -10,7 +10,7 @@ local sIconData
 
 function extractPathFromSvg pSVG
    local tPath, tIndex, tLine
-   
+   --
    set linedel to " d="
    set itemdel to quote
    put 0 into tIndex
@@ -24,6 +24,13 @@ end extractPathFromSvg
 
 
 on openStack
+   local tPath
+   --
+   put prefsPath() into tPath
+   if there is not a folder tPath then
+      create folder tPath
+   end if
+   --
    loadPrefs
    if the hilite of button "ShowHelp" of card "settings" of me then
       go card "settings"
@@ -37,8 +44,13 @@ end getIconData
 
 
 on setIconData pIconData
+   local tPath, tPrefs
+   --
    put pIconData into sIconData
-   savePrefs
+   put prefsPath() into tPath
+   if sIconData is an array then
+      put arrayEncode(sIconData) into URL ("binfile:" & tPath & "/SvgIconTool.icons")
+   end if
 end setIconData
 
 
@@ -65,12 +77,6 @@ end loadPrefs
 on savePrefs
    local tPath, tPrefs
    put prefsPath() into tPath
-   if there is not a folder tPath then
-      create folder tPath
-   end if
-   if sIconData is an array then
-      put arrayEncode(sIconData) into URL ("binfile:" & tPath & "/SvgIconTool.icons")
-   end if
    put the hilite of button "ShowHelp" of card "settings" of me into tPrefs["ShowHelp"]
    put the hilite of button "AddFamily" of card "settings" of me into tPrefs["AddFamily"]
    put arrayEncode(tPrefs) into URL ("binfile:" & tPath & "/SvgIconTool.prefs")
