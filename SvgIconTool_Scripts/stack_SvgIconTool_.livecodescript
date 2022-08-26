@@ -72,6 +72,14 @@ on loadPrefs
          set the hilite of button "ShowHelp" of card "settings" of me to tPrefs["ShowHelp"]
          set the hilite of button "AddFamily" of card "settings" of me to tPrefs["AddFamily"]
       end try
+   else
+      if tPath is not revEnvironmentUserPluginsPath() & "/milby.us" then
+         answer "Would you like to copy Svg Icon Tool to your plugin folder?" with "Yes" or "No"
+         if it is "Yes" then
+            put URL ("binfile:" & (char 2 to -2 of word 2 of the long name of this stack)) into \
+                  URL ("binfile:" & revEnvironmentUserPluginsPath() & "/SvgIconTool.livecode")
+         end if
+      end if
    end if
 end loadPrefs
 
