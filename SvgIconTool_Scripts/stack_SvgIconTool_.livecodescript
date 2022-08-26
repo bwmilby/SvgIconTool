@@ -34,6 +34,8 @@ on openStack
    loadPrefs
    if the hilite of button "ShowHelp" of card "settings" of me then
       go card "settings"
+   else
+      go card "grid"
    end if
 end openStack
 
