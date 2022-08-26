@@ -2,6 +2,8 @@
 
 LiveCode tool to manage SVG Icon Families
 
+To install the plugin, copy the **SvgIconTool.livecode** file to your plugin directory.  If previously launched, the **milby.us** folder may also be copied to retain any icons that were imported.
+
 Drag a SVG file to the **Icon** card to see the file and path.  Click the open folder icon or double click the file name field to select a file.
 
 Drag a folder of SVG files to the **Family** card to get a list.  You can arrow up/down though the list to view icons individually.  Click the open folder icon or double click the family path field to select a folder.
