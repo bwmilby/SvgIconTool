@@ -8,6 +8,7 @@ Script "stack_SvgIconTool_"
 
 local sIconData
 
+
 function extractPathFromSvg pSVG
    local tPath, tIndex, tLine
    --
@@ -24,11 +25,26 @@ end extractPathFromSvg
 
 
 on openStack
-   local tPath
+   local tPath, tCreatePath
    --
    put prefsPath() into tPath
    if there is not a folder tPath then
-      create folder tPath
+      put true into tCreatePath
+      if tPath is not revEnvironmentUserPluginsPath() & "/milby.us" then
+         answer "Would you like to copy Svg Icon Tool to your plugin folder?" with "No" or "Yes"
+         if it is "Yes" then
+            put false into tCreatePath
+            put URL ("binfile:" & (char 2 to -2 of word 2 of the long name of this stack)) into \
+                  URL ("binfile:" & revEnvironmentUserPluginsPath() & "/SvgIconTool.livecode")
+            set the name of this stack to "SvgIconTool2"
+            open stack revEnvironmentUserPluginsPath() & "/SvgIconTool.livecode"
+            palette stack "SvgIconTool"
+            close stack "SvgIconTool2"
+         end if
+      end if
+      if tCreatePath then
+         create folder tPath
+      end if
    end if
    --
    loadPrefs
@@ -72,14 +88,6 @@ on loadPrefs
          set the hilite of button "ShowHelp" of card "settings" of me to tPrefs["ShowHelp"]
          set the hilite of button "AddFamily" of card "settings" of me to tPrefs["AddFamily"]
       end try
-   else
-      if tPath is not revEnvironmentUserPluginsPath() & "/milby.us" then
-         answer "Would you like to copy Svg Icon Tool to your plugin folder?" with "Yes" or "No"
-         if it is "Yes" then
-            put URL ("binfile:" & (char 2 to -2 of word 2 of the long name of this stack)) into \
-                  URL ("binfile:" & revEnvironmentUserPluginsPath() & "/SvgIconTool.livecode")
-         end if
-      end if
    end if
 end loadPrefs
 
