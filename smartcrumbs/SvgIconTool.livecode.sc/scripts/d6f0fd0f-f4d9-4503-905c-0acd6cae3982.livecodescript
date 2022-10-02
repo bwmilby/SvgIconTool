@@ -1,1 +1,1 @@
-stack "d6f0fd0f-f4d9-4503-905c-0acd6cae3982"on mouseUp   selectFileToOpenend mouseUp
+on mouseUp   selectFileToOpenend mouseUp

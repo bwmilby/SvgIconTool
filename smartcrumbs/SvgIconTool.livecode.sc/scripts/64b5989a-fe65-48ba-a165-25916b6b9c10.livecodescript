@@ -1,1 +1,1 @@
-stack "64b5989a-fe65-48ba-a165-25916b6b9c10"on mouseDoubleUp pButtonNumber   selectFileToOpenend mouseDoubleUp
+on mouseDoubleUp pButtonNumber   selectFileToOpenend mouseDoubleUp

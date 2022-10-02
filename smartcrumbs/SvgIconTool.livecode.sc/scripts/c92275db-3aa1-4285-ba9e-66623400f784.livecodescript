@@ -1,1 +1,1 @@
-stack "c92275db-3aa1-4285-ba9e-66623400f784"on hiliteChanged   go card (the hilitedItemName of me)end hiliteChanged
+on hiliteChanged   go card (the hilitedItemName of me)end hiliteChanged

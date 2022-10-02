@@ -1,1 +1,1 @@
-stack "d033eada-3b4a-4fea-b56d-a9f7d79c823d"on mouseDoubleUp pButtonNumber   selectFolderToOpenend mouseDoubleUp
+on mouseDoubleUp pButtonNumber   selectFolderToOpenend mouseDoubleUp

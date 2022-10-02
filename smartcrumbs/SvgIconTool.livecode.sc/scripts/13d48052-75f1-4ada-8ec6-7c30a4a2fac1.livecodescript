@@ -1,1 +1,1 @@
-stack "13d48052-75f1-4ada-8ec6-7c30a4a2fac1"on mouseUp   selectFolderToOpenend mouseUp
+on mouseUp   selectFolderToOpenend mouseUp

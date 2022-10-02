@@ -1,1 +1,1 @@
-stack "03050834-e101-4781-aa0d-68dd7bb1cb4f"on preOpenCard   set the hilitedItemName of widget "NavBar" to the short name of this card   revUpdateGeometryend preOpenCard
+on preOpenCard   set the hilitedItemName of widget "NavBar" to the short name of this card   revUpdateGeometryend preOpenCard
