@@ -1,1 +1,1 @@
-on mouseUp   selectFileToOpenend mouseUp
+on mouseUp   selectFileToOpenend mouseUp
