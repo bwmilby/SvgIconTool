@@ -1,1 +1,3 @@
-on mouseDoubleUp pButtonNumber   selectFolderToOpenend mouseDoubleUp
+on mouseDoubleUp pButtonNumber
+   selectFolderToOpen
+end mouseDoubleUp

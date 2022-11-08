@@ -1,1 +1,3 @@
-on mouseUp   savePrefsend mouseUp
+on mouseUp
+   savePrefs
+end mouseUp

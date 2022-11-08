@@ -1,1 +1,3 @@
-on mouseUp   selectFolderToOpenend mouseUp
+on mouseUp
+   selectFolderToOpen
+end mouseUp

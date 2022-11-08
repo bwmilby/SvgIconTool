@@ -1,1 +1,3 @@
-on mouseDoubleUp pButtonNumber   selectFileToOpenend mouseDoubleUp
+on mouseDoubleUp pButtonNumber
+   selectFileToOpen
+end mouseDoubleUp

@@ -1,1 +1,3 @@
-on hiliteChanged   go card (the hilitedItemName of me)end hiliteChanged
+on hiliteChanged
+   go card (the hilitedItemName of me)
+end hiliteChanged
