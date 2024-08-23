@@ -85,9 +85,12 @@ on loadPrefs
    if tData is not empty then
       try
          put arrayDecode(tData) into tPrefs
-         set the hilite of button "ShowHelp" of card "settings" of me to tPrefs["ShowHelp"]
-         set the hilite of button "AddFamily" of card "settings" of me to tPrefs["AddFamily"]
+      catch tIgnoreError
+         put true into tPrefs["ShowHelp"]
+         put true into tPrefs["AddFamily"]
       end try
+      set the hilite of button "ShowHelp" of card "settings" of me to tPrefs["ShowHelp"]
+      set the hilite of button "AddFamily" of card "settings" of me to tPrefs["AddFamily"]
    end if
 end loadPrefs
 

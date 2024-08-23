@@ -150,7 +150,7 @@ end arrowKey
 
 command clearData
    local tObject
-   --put empty into sIconData
+   put empty into sIconData
    repeat with tRow = 1 to kRows
       repeat with tCol = 1 to kCols
          put "widget" && quote & "icon " & tCol & quote && "of group" && \
